@@ -1,4 +1,4 @@
-module github.com/coinbase/rosetta-bitcoin
+module github.com/PoWx-Org/obtc-rosetta
 
 go 1.13
 

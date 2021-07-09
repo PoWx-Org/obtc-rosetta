@@ -17,7 +17,7 @@ package services
 import (
 	"context"
 
-	"github.com/coinbase/rosetta-bitcoin/bitcoin"
+	"github.com/PoWx-Org/obtc-rosetta/bitcoin"
 
 	"github.com/coinbase/rosetta-sdk-go/types"
 )
