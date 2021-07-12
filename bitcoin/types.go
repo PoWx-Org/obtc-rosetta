@@ -96,7 +96,7 @@ var (
 
 	// MainnetCurrency is the *types.Currency for mainnet.
 	MainnetCurrency = &types.Currency{
-		Symbol:   "BTC",
+		Symbol:   "OBTC",
 		Decimals: Decimals,
 	}
 
@@ -110,7 +110,7 @@ var (
 
 	// TestnetCurrency is the *types.Currency for testnet.
 	TestnetCurrency = &types.Currency{
-		Symbol:   "tBTC",
+		Symbol:   "tOBTC",
 		Decimals: Decimals,
 	}
 

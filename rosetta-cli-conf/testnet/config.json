@@ -1,7 +1,7 @@
 {
   "network": {
     "blockchain": "Bitcoin",
-    "network": "Testnet3"
+    "network": "testnet"
   },
   "data_directory": "cli-data",
   "http_timeout": 300,
