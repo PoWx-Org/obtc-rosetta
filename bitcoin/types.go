@@ -102,7 +102,7 @@ var (
 
 	// TestnetGenesisBlockIdentifier is the genesis block for testnet.
 	TestnetGenesisBlockIdentifier = &types.BlockIdentifier{
-		Hash: "000aab90504d97d9714bd9b20de40aa306519884c7204b2febd3341c47d591e6",
+		Hash: "00000000248ecbf08dbd9470a22a4bd3497e25abd132676b55c4ed33f1613256",
 	}
 
 	// TestnetParams are the params for testnet.

@@ -24,10 +24,10 @@ RUN apt-get update && apt-get install -y make gcc g++ autoconf autotools-dev bsd
   libcurl4-openssl-dev libdb++-dev libevent-dev libssl-dev libtool pkg-config python python-pip libzmq3-dev wget
 
 # VERSION: Bitcoin Core 0.20.1
-RUN git clone https://github.com/PoWx-Org/obtc-core.git \
+RUN git clone -b testnet-for-payments https://github.com/PoWx-Org/obtc-core.git \
   && mv obtc-core bitcoin \
   && cd bitcoin \
-  && git checkout 29132bc679a334dc2e8b4093acbf26a0823fafba
+  && git checkout d39b8288193da2c87617c5e74c5cac7eb261619f
 
 RUN cd bitcoin \
   && ./autogen.sh \
@@ -35,6 +35,7 @@ RUN cd bitcoin \
   && make
 
 RUN mv bitcoin/src/bitcoind /app/bitcoind \
+  && mv bitcoin/src/bitcoin-cli /app/bitcoin-cli \
   && rm -rf bitcoin
 
 # Build Rosetta Server Components
@@ -63,7 +64,7 @@ COPY . src
 RUN cd src \
   && go build \
   && cd .. \
-  && mv src/rosetta-bitcoin /app/rosetta-bitcoin \
+  && mv src/obtc-rosetta /app/rosetta-bitcoin \
   && mv src/assets/* /app \
   && rm -rf src 
 
