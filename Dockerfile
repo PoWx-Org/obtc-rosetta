@@ -24,10 +24,10 @@ RUN apt-get update && apt-get install -y make gcc g++ autoconf autotools-dev bsd
   libcurl4-openssl-dev libdb++-dev libevent-dev libssl-dev libtool pkg-config python python-pip libzmq3-dev wget
 
 # VERSION: Bitcoin Core 0.20.1
-RUN git clone -b testnet-for-payments https://github.com/PoWx-Org/obtc-core.git \
+RUN git clone https://github.com/PoWx-Org/obtc-core.git \
   && mv obtc-core bitcoin \
   && cd bitcoin \
-  && git checkout d39b8288193da2c87617c5e74c5cac7eb261619f
+  && git checkout 375451f610f717bd7b192e2f2c678fe3d8f4290c
 
 RUN cd bitcoin \
   && ./autogen.sh \
