@@ -6,15 +6,8 @@
 <h3 align="center">
    OBTC Rosetta 
 </h3>
-<p align="center">
-  <a href="https://circleci.com/gh/coinbase/rosetta-bitcoin/tree/master"><img src="https://circleci.com/gh/coinbase/rosetta-bitcoin/tree/master.svg?style=shield" /></a>
-  <a href="https://coveralls.io/github/coinbase/rosetta-bitcoin"><img src="https://coveralls.io/repos/github/coinbase/rosetta-bitcoin/badge.svg" /></a>
-  <a href="https://goreportcard.com/report/github.com/coinbase/rosetta-bitcoin"><img src="https://goreportcard.com/badge/github.com/coinbase/rosetta-bitcoin" /></a>
-  <a href="https://github.com/coinbase/rosetta-bitcoin/blob/master/LICENSE.txt"><img src="https://img.shields.io/github/license/coinbase/rosetta-bitcoin.svg" /></a>
-  <a href="https://pkg.go.dev/github.com/coinbase/rosetta-bitcoin?tab=overview"><img src="https://img.shields.io/badge/go.dev-reference-007d9c?logo=go&logoColor=white&style=shield" /></a>
-</p>
 
-<p align="center"><b>
+<p>
 OBTC-ROSETTA IS CONSIDERED <a href="https://en.wikipedia.org/wiki/Software_release_life_cycle#Alpha">ALPHA SOFTWARE</a>.
 USE AT YOUR OWN RISK! PoWx ASSUMES NO RESPONSIBILITY NOR LIABILITY IF THERE IS A BUG IN THIS IMPLEMENTATION.
 </b></p>
@@ -35,12 +28,12 @@ all Rosetta implementations must be deployable via Docker and support running vi
 DOCKER [HERE](https://www.docker.com/get-started).**
 
 ### Install
-Running the following commands will create a Docker image called `rosetta-bitcoin:latest`.
+Running the following commands will create a Docker image called `obtc-rosetta`.
 
 #### From Docker Hub
-After installinf Docker, run:
+After installing Docker, run:
 ```text
-lorem ipsum
+docker pull powx/obtc-rosetta
 ```
 
 #### From Source
@@ -64,7 +57,7 @@ _If you cloned the repository, you can run `make run-mainnet-online`._
 
 #### Mainnet:Offline
 ```text
-docker run -d --rm -e "MODE=OFFLINE" -e "NETWORK=MAINNET" -e "PORT=8081" -p 8081:8081 rosetta-bitcoin:latest
+docker run -d --rm -e "MODE=OFFLINE" -e "NETWORK=MAINNET" -e "PORT=8081" -p 8081:8081 obtc-rosetta
 ```
 _If you cloned the repository, you can run `make run-mainnet-offline`._
 
@@ -76,7 +69,7 @@ _If you cloned the repository, you can run `make run-testnet-online`._
 
 #### Testnet:Offline
 ```text
-docker run -d --rm -e "MODE=OFFLINE" -e "NETWORK=TESTNET" -e "PORT=8081" -p 8081:8081 rosetta-bitcoin:latest
+docker run -d --rm -e "MODE=OFFLINE" -e "NETWORK=TESTNET" -e "PORT=8081" -p 8081:8081 obtc-rosetta
 ```
 _If you cloned the repository, you can run `make run-testnet-offline`._
 
@@ -85,7 +78,7 @@ _If you cloned the repository, you can run `make run-testnet-offline`._
 This instance type has 32 vCPU and 68 GB of RAM. Much less powerful can be used but perfomance is not guaranteed. 
 
 ### Network Settings
-To increase the load `rosetta-bitcoin` can handle, it is recommended to tune your OS
+To increase the load `obtc-rosetta` can handle, it is recommended to tune your OS
 settings to allow for more connections. On a linux-based OS, you can run the following
 commands ([source](http://www.tweaked.io/guide/kernel)):
 ```text
@@ -96,14 +89,14 @@ sysctl -w net.ipv4.tcp_max_syn_backlog=10000
 sysctl -w net.core.somaxconn=10000
 sysctl -p (when done)
 ```
-_We have not tested `rosetta-bitcoin` with `net.ipv4.tcp_tw_recycle` and do not recommend
+_We have not tested `obtc-rosetta` with `net.ipv4.tcp_tw_recycle` and do not recommend
 enabling it._
 
 You should also modify your open file settings to `100000`. This can be done on a linux-based OS
 with the command: `ulimit -n 100000`.
 
 ### Memory-Mapped Files
-`rosetta-bitcoin` uses [memory-mapped files](https://en.wikipedia.org/wiki/Memory-mapped_file) to
+`obtc-rosetta` uses [memory-mapped files](https://en.wikipedia.org/wiki/Memory-mapped_file) to
 persist data in the `indexer`. As a result, you **must** run `rosetta-bitcoin` on a 64-bit
 architecture (the virtual address space easily exceeds 100s of GBs).
 
@@ -119,15 +112,8 @@ and run one of the following commands:
 * `rosetta-cli check:data --configuration-file rosetta-cli-conf/mainnet/config.json`
 * `rosetta-cli check:construction --configuration-file rosetta-cli-conf/mainnet/config.json`
 
-## Development
-* `make deps` to install dependencies
-* `make test` to run tests
-* `make lint` to lint the source code
-* `make salus` to check for security concerns
-* `make build-local` to build a Docker image from the local context
-* `make coverage-local` to generate a coverage report
-
 ## License
 This project is available open source under the terms of the [Apache 2.0 License](https://opensource.org/licenses/Apache-2.0).
+
 
 
