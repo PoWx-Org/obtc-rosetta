@@ -27,7 +27,7 @@ RUN apt-get update && apt-get install -y make gcc g++ autoconf autotools-dev bsd
 RUN git clone https://github.com/PoWx-Org/obtc-core.git \
   && mv obtc-core bitcoin \
   && cd bitcoin \
-  && git checkout 375451f610f717bd7b192e2f2c678fe3d8f4290c
+  && git checkout 0aff202ebb151c29dade899596575d1c8eda7f8a 
 
 RUN cd bitcoin \
   && ./autogen.sh \
